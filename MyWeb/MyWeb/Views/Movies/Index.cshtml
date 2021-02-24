@@ -1,0 +1,21 @@
+﻿@model MyWeb.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List Of Customers</h2>
+
+@if (Model.Movies.Count == 0)
+{
+    <p>No Movie are registerd yet !</p>
+}
+else
+{
+    <ul>
+        @foreach (var movie in Model.Movies)
+        {
+            <li>@movie.Name</li>
+        }
+    </ul>
+}

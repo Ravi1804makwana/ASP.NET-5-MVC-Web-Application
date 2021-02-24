@@ -1,0 +1,39 @@
+﻿@model MyWeb.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "ListCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Insert New Customer : <a href="Customers/New" class="form-control btn btn-primary">Insert</a></h2>
+<h2>List of Customer</h2>
+<hr />
+@if (Model.Customers.Count == 0)
+{
+    <p>No one has rented this movie before.</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>Name of Customer</th>
+            <th>Show Customer Details</th>
+            <th>Show Customer Details</th>
+            <th>Remove Customer</th>
+        </tr>
+        @foreach (var customer in Model.Customers)
+        {
+    <tr style="align-content:center;">
+        <td>@customer.Name</td>
+        <td>
+            <a href="Customers/@customer.Id" class="btn btn-primary">Show</a>
+        </td>
+        <td>
+            <a href="Customers/Edit/@customer.Id" class="btn btn-primary">Update</a>
+        </td>
+        <td>
+            <a href="Customers/Remove/@customer.Id" class="btn btn-primary">Remove</a>
+        </td>
+    </tr>
+        }
+    </table>
+}
+

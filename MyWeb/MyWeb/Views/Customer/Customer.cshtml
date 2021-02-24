@@ -1,0 +1,38 @@
+﻿@model MyWeb.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Customer Information: -</h1>
+<br />
+<br />
+<table style="font-size:25px; " class="table">
+    <tr>
+        <th>Name</th>
+        <td>@Model.Customers[0].Name</td>
+    </tr>
+    <tr>
+        <th>Date Of Birth</th>
+        <td>@Model.Customers[0].DateOfBirth</td>
+    </tr>
+    <tr>
+        <th>Email Address</th>
+        <td>@Model.Customers[0].Email</td>
+    </tr>
+    <tr>
+        <th>Age</th>
+        <td>@Model.Customers[0].Age</td>
+    </tr>
+    <tr>
+        <th>Gender</th>
+        <td>@Model.Customers[0].Gender</td>
+    </tr>
+    <tr>
+        <th>Hobbies</th>
+        <td>@Model.Customers[0].Hobbies</td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td>@Model.Customers[0].Address</td>
+    </tr>
+</table>

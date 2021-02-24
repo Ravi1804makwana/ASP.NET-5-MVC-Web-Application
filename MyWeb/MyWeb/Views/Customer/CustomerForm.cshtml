@@ -1,0 +1,59 @@
+﻿@model MyWeb.Models.Customer
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Customer</h2>
+
+@using (Html.BeginForm("Save", "Customer"))
+{
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @Html.LabelFor(r => r.Name)
+        @Html.TextBoxFor(r => r.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(r => r.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.DateOfBirth)
+        @Html.TextBoxFor(r => r.DateOfBirth, "{0:MMMM d, yyyy}", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.Email)
+        @Html.TextBoxFor(r => r.Email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.Age)
+        @Html.TextBoxFor(r => r.Age, new { @class = "form-control" })
+        @Html.ValidationMessageFor(r => r.Age)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.Gender)
+        @Html.TextBoxFor(r => r.Gender, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.Hobbies)
+        @Html.TextBoxFor(r => r.Hobbies, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.Address)
+        @Html.TextAreaFor(r => r.Address, new { @class = "form-control" })
+    </div>
+    @*<div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(r => r.IsChecked) Is Checked?
+            </label>
+        </div>*@
+    @*<div class="form-group">
+            @Html.LabelFor(r=>r.DropDownList)
+            @Html.DropDownListFor(r=>r.DropDownList, new SelectList(Model.DropDownList, "Id", "Name"),"Membership Type", new { class= "form-control"})
+        </div>*@
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}
